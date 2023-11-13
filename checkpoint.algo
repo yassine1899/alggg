@@ -1,0 +1,38 @@
+BEGIN palindrome
+VAR
+    mot: CHAR[n];
+    b: BOOLEAN;
+    i, n: INTEGER;
+BEGIN
+    WRITE("Veuillez introduire un mot de plus de 2 caractères: ");
+    REPEAT
+        READ(mot)
+    UNTIL (mot.length > 2)
+    b := TRUE;
+    n:= longueur(mot);
+    i:=1;
+    IF (n mod 2 = 0) THEN
+        WHILE ((b=TRUE) AND (n<> i+1))  DO
+            IF (mot[i]=mot[n]) THEN
+                b:=TRUE;
+            ELSE
+                b:=FALSE;
+            END_IF
+            i:=i+1;
+            n:=n-1;
+        END_WHILE
+    ELSE
+        WHILE ((b=TRUE) et (n<>i)) DO
+            IF (mot[i]=mot[n]) THEN
+                b:=TRUE
+            ELSE
+                b:=FALSE
+            END_IF
+        END_WHILE
+    END_IF
+    IF (b=TRUE) THEN
+         WRITE("Le mot introduit est palindrome");
+    ELSE
+        WRITE("Le mot introduit n'est pas palindrome");
+    END_IF
+END
